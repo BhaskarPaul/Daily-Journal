@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<p style="opacity: 0.5;margin-top: 10px">Click <a href="/compose">POST</a> button to create new post...</p>
+
+<%posts.forEach(function(post){%>
+    <% if (post.title.length != 0) { %> 
+        <h1><%=post.title%></h1>
+        <% const route = post._id %>
+        <p>
+            <%=post.body.slice(0, 100) + ' ... '%><span
+                ><a href="<%= "/post/" + route %>" >read more</a></span
+            >
+        </p>
+    <% } else { %>
+        <h1></h1>
+        <p></p>
+    <% } %> 
+
+<%})%> <%- include('partials/footer') %>
